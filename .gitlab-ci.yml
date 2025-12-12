@@ -9,7 +9,6 @@ build:
   script:
     - npm ci
     - node scripts/generate-homepage-content.cjs
-    - npm run build
     - npx @cloudflare/next-on-pages
   artifacts:
     paths:
