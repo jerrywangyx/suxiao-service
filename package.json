@@ -4,12 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "cloudflare:build": "npx @cloudflare/next-on-pages"
+    "dev": "node -r ./scripts/chunk-require-patch.cjs ./node_modules/next/dist/bin/next dev",
+    "prebuild": "node scripts/generate-homepage-content.cjs",
+    "build": "node -r ./scripts/chunk-require-patch.cjs ./node_modules/next/dist/bin/next build",
+    "start": "node -r ./scripts/chunk-require-patch.cjs ./node_modules/next/dist/bin/next start",
+    "cloudflare:build": "node scripts/generate-homepage-content.cjs && npx @cloudflare/next-on-pages",
+    "vercel:deploy": "vercel --prod"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "bootstrap": "^5.3.3",
     "next": "15.5.2",
     "react": "^18.3.1",

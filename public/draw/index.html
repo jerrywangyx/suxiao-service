@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>白板画图 - 在线协作白板</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover,shrink-to-fit=no"/>
+  <meta name="referrer" content="origin"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="theme-color" content="#121212"/>
+  <meta name="description" content="在线协作白板工具，支持手绘风格的图表绘制"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/draw/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/draw/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/draw/favicon-16x16.png"/>
+  
+  <script>
+    // 主题设置
+    try {
+        function setTheme(theme) {
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        }
+        function getTheme() {
+          const theme = window.localStorage.getItem("excalidraw-theme");
+          if (theme && theme === "system") {
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+            return theme || "light";
+          }
+        setTheme(getTheme());
+      } catch (e) {
+        console.error("Error setting dark mode", e);
+    }
+  </script>
+  
+  <style>
+    html.dark { background-color: #121212; color: #fff; }
+  </style>
+  
+  <script>
+    // 配置资源路径为本地
+    window.EXCALIDRAW_ASSET_PATH = ["/draw/fonts/", "/draw/"];
+    window.name = "_excalidraw";
+  </script>
+  
+  <style>
+    body, html {
+      margin: 0;
+      -webkit-text-size-adjust: 100%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      user-select: none;
+    }
+    #root {
+      height: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    @media screen and (min-width: 1200px) {
+      #root {
+        -webkit-touch-callout: default;
+        -webkit-user-select: auto;
+        -khtml-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+      }
+    }
+  </style>
+  
+  <script type="module" crossorigin src="/draw/assets/index-D1792Kp_.js"></script>
+  <link rel="stylesheet" crossorigin href="/draw/assets/index-6msCUY9p.css">
+  <link rel="manifest" href="/draw/manifest.webmanifest">
+</head>
+<body>
+  <noscript>您需要启用 JavaScript 才能运行此应用。</noscript>
+  <header>
+    <h1 class="visually-hidden">白板画图</h1>
+  </header>
+  <div id="root"></div>
+  <script>
+    // 隐藏 Excalidraw+ 和 Sign up 按钮
+    (function() {
+      function hideElements() {
+        // 隐藏包含 Excalidraw+ 文字的链接
+        document.querySelectorAll('a').forEach(function(a) {
+          if (a.textContent.includes('Excalidraw+') || 
+              a.textContent.includes('Sign up') ||
+              (a.href && a.href.includes('plus.excalidraw'))) {
+            a.style.display = 'none';
+          }
+        });
+      }
+      // 初始执行
+      setTimeout(hideElements, 500);
+      setTimeout(hideElements, 1000);
+      setTimeout(hideElements, 2000);
+      // 监听DOM变化
+      var observer = new MutationObserver(hideElements);
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
+</body>
+</html>

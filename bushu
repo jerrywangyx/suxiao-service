@@ -1,0 +1,6 @@
+     cd D:\aiworkspace\suxiao-service
+     $env:VERCEL_TOKEN="cukoF5rg9uz5RWzAO0vSOIwQ"
+     npx vercel build --token=$env:VERCEL_TOKEN
+     npx @cloudflare/next-on-pages --skip-build
+     $env:CLOUDFLARE_API_TOKEN="z4Vm9XLEmbQ0Yg4jka562lzj5TZRRrPzY6IfkJ_L"
+     npx wrangler pages deploy .vercel/output/static --project-name=yongxin --commit-dirty=t

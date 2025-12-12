@@ -1,0 +1,3145 @@
+<!DOCTYPE html>
+<html lang="zh" data-bs-theme="night">
+<head> <script>
+    let key = "data-bs-theme";
+    let state = localStorage.getItem(key) || "default";
+    switch (state) {
+      case "dark":
+        document.documentElement.setAttribute(key, "dark");
+        break;
+      case "light":
+        document.documentElement.setAttribute(key, "light");
+        break;
+      default:
+        localStorage.setItem(key, "default");
+        state = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+        document.documentElement.setAttribute(key, state);
+    }
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', e => {
+      if (localStorage.getItem(key) === "default") {
+        document.documentElement.setAttribute(key, e.matches ? "dark" : "light");
+      }
+    });
+  </script> <meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>刘明野的工具箱 - 提供好用、易用的工具，还在不断添加中，欢迎访问！</title>
+<link rel="icon" href="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://tools.liumingye.cn/usr/themes/ITEM/assets/css/main.min.css?v=250824"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8773997952639831" crossorigin="anonymous">
+</script> <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
+</script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+</script>
+<![endif]-->
+<meta name="description" content="提供好用、易用的工具，还在不断添加中，欢迎访问！">
+<meta name="keywords" content="刘明野,工具箱,在线工具">
+</head>
+<body>
+<div class="site-wrapper">
+<aside class="site-aside">
+<div class="aside-wrapper">
+<a href="https://tools.liumingye.cn/" class="aside-brand" rel="home">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/head.png" class="logo nc-no-lazy" alt="刘明野的工具箱">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/apple-touch-icon.png" class="logo-sm nc-no-lazy" alt="刘明野的工具箱">
+</a>
+<div class="aside-scroll scrollable hover">
+<ul class="aside-menu" data-index="1">
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="1" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-video fa-sm">
+</i>
+</span>
+<span class="menu-text">影视</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="3" aria-current="page">
+<span class="menu-text">在线看</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="6" aria-current="page">
+<span class="menu-text">下载</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="7" aria-current="page">
+<span class="menu-text">网盘</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="4" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-cat fa-sm">
+</i>
+</span>
+<span class="menu-text">二次元</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="5" aria-current="page">
+<span class="menu-text">动漫</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="8" aria-current="page">
+<span class="menu-text">漫画</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="10" aria-current="page">
+<span class="menu-text">下载站</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="9" aria-current="page">
+<span class="menu-text">神器</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="11" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-music fa-sm">
+</i>
+</span>
+<span class="menu-text">音乐</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="16" aria-current="page">
+<span class="menu-text">听歌</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="22" aria-current="page">
+<span class="menu-text">无损音乐</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="23" aria-current="page">
+<span class="menu-text">电台</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="12" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-book fa-sm">
+</i>
+</span>
+<span class="menu-text">阅读</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="17" aria-current="page">
+<span class="menu-text">电子书</span>
+</a>
+</li>
+<li class="menu-item">
+<a role="button" data-target="18" aria-current="page">
+<span class="menu-text">小说</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="13" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-gamepad fa-sm">
+</i>
+</span>
+<span class="menu-text">游戏</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="33" aria-current="page">
+<span class="menu-text">在线小游戏</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="14" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-fan fa-sm">
+</i>
+</span>
+<span class="menu-text">娱乐</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="26" aria-current="page">
+<span class="menu-text">壁纸</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="15" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-toolbox fa-sm">
+</i>
+</span>
+<span class="menu-text">工具箱</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="34" aria-current="page">
+<span class="menu-text">在线工具</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a role="button" data-target="21" aria-current="page">
+<span class="menu-icon">
+<i class="fas fa-box fa-sm">
+</i>
+</span>
+<span class="menu-text">软件</span>
+<span class="menu-sign fas fa-arrow-right fa-sm">
+</span>
+</a>
+<ul class="sub-menu" role="menu">
+<li class="menu-item">
+<a role="button" data-target="35" aria-current="page">
+<span class="menu-text">装机必备</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+<header class="site-header">
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+<div class="navbar-left d-md-none">
+<a href="javascript:;" class="btn btn-link btn-icon btn-rounded" id="menuCollasped">
+<span>
+<i class="fas fa-bars">
+</i>
+</span>
+</a>
+</div>
+<a href="https://tools.liumingye.cn/" class="navbar-brand d-md-none" rel="home">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/head.png" class="logo nc-no-lazy" alt="刘明野的工具箱">
+</a>
+<div class="navbar-expand d-none d-md-block ms-0 ms-xl-3">
+<ul class="navbar-nav navbar-site me-auto">
+<li class="menu-item">
+<a href="https://tools.liumingye.cn/timeline.html" title="时间线">时间线</a>
+</li>
+<li class="menu-item">
+<a href="https://tools.liumingye.cn/start-page.html" title="关于">关于</a>
+</li>
+</ul>
+</div>
+<div class="navbar-right me-auto me-0 me-xl-3">
+<div class="dropdown" id="theme-toggle">
+<a title="更换主题" class="btn btn-link btn-icon btn-rounded d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-toggle">
+<li>
+<button id="default" class="dropdown-item" type="button">
+<i class="fas fa-adjust">
+</i> 跟随系统</button>
+</li>
+<li>
+<button id="dark" class="dropdown-item" type="button">
+<i class="fas fa-moon">
+</i> 深色模式</button>
+</li>
+<li>
+<button id="light" class="dropdown-item" type="button">
+<i class="fas fa-sun">
+</i> 浅色模式</button>
+</li>
+</ul>
+</div>
+<div class="dropdown" id="browse-history">
+<a title="浏览历史" class="btn btn-link btn-icon btn-rounded d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+<i class="far fa-clock">
+</i>
+</a>
+<div class="dropdown-menu">
+<div class="text-body-secondary text-center">浏览历史</div>
+<div class="row gx-1 gy-0">
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main class="site-main site-index px-1 px-sm-2 px-lg-3 px-xxl-5">
+<div id="search" class="search-block card">
+<div class="card-body">
+<div class="search-group mb-2">
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded active" data-index="0">
+<i class="fas fa-search">
+</i> 搜索 </a>
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded" data-index="1">
+<i class="fas fa-video">
+</i> 影视 </a>
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded" data-index="2">
+<i class="fas fa-film">
+</i> 资料 </a>
+</div>
+<form>
+<input type="text" class="form-control" placeholder="请输入搜索关键词并按回车键…">
+</form>
+<div class="search-child mt-2">
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded active" data-url="/search/"> 站内 </a>
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded" data-url="https://cn.bing.com/search?q="> Bing </a>
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded" data-url="https://www.baidu.com/s?wd="> 百度 </a>
+<a href="javascript:;" class="btn btn-link btn-sm btn-rounded" data-url="https://www.google.com/search?q="> Google </a>
+</div>
+</div> <script>
+      var searchData = [{"name":"搜索","icon":"fas fa-search","child":[{"name":"站内","url":"/search/"},{"name":"Bing","url":"https://cn.bing.com/search?q="},{"name":"百度","url":"https://www.baidu.com/s?wd="},{"name":"Google","url":"https://www.google.com/search?q="}]},{"name":"影视","icon":"fas fa-video","child":[{"name":"m1907","url":"https://tool.liumingye.cn/video/?s="},{"name":"搜片","url":"https://soupian.plus/movie/"},{"name":"火车太堵","url":"https://www.hctd1.com/vodsearch/-------------.html?wd="}]},{"name":"资料","icon":"fas fa-film","child":[{"name":"豆瓣","url":"https://search.douban.com/movie/subject_search?search_text="},{"name":"IMDb","url":"https://www.imdb.com/find/?q="},{"name":"TMDB","url":"https://www.themoviedb.org/search?query="}]}];
+    </script> </div>
+<div class="content">
+<div class="row g-3 g-xl-4">
+<div class="col-12 col-lg-4 d-lg-flex hot-rank">
+<div class="card card-xl flex-fill">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<div class="h4">
+<i class="fas fa-sm fa-flag">
+</i> 热门站点</div>
+</div>
+<div class="card-body">
+<div class="list-number list-row list-bordered">
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">青听音乐 - 免费的音乐APP，支持四大平台曲库</div>
+</div>
+</div>
+<a href="https://tools.liumingye.cn/site/143/" target="_blank" cid="143" title="免费的音乐APP，支持四大平台曲库" class="list-goto nav-item">
+</a>
+</div>
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">歌曲海 - 免费的在线音乐试听、下载平台</div>
+</div>
+</div>
+<a href="https://www.gequhai.com" target="_blank" cid="117" title="免费的在线音乐试听、下载平台" class="list-goto nav-item">
+</a>
+</div>
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">米兔音乐 - 提供歌曲在线试听、免费下载的音乐网站</div>
+</div>
+</div>
+<a href="https://www.qqmp3.vip" target="_blank" cid="30" title="提供歌曲在线试听、免费下载的音乐网站" class="list-goto nav-item">
+</a>
+</div>
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">布谷音乐 - 提供MP3、WAV、Flac等格式的歌曲下载网站</div>
+</div>
+</div>
+<a href="https://www.buguyy.top" target="_blank" cid="29" title="提供MP3、WAV、Flac等格式的歌曲下载网站" class="list-goto nav-item">
+</a>
+</div>
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">SPlayer - 网易云音乐第三方播放器，支持网页、Windows、Mac、Linux版本</div>
+</div>
+</div>
+<a href="https://tools.liumingye.cn/site/103/" target="_blank" cid="103" title="网易云音乐第三方播放器，支持网页、Windows、Mac、Linux版本" class="list-goto nav-item">
+</a>
+</div>
+<div class="list-item">
+<div class="list-content">
+<div class="list-body">
+<div class="list-title h-1x">MusicFree - 支持安卓、PC的音乐播放器，开源、免费、无广告、可定制化的全网听歌神器</div>
+</div>
+</div>
+<a href="https://tools.liumingye.cn/site/39/" target="_blank" cid="39" title="支持安卓、PC的音乐播放器，开源、免费、无广告、可定制化的全网听歌神器" class="list-goto nav-item">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-8 d-lg-flex tool-direct">
+<div class="card card-xl flex-fill">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<div class="h4">
+<i class="fas fa-sm fa-paperclip">
+</i> 工具直达</div>
+</div>
+<div class="card-body">
+<div class="index-sudoku row list text-center g-2 g-md-3 g-lg-4">
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: linear-gradient(45deg, #97b3ff, #2f66ff)" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-fire">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">今日热榜</div>
+<a href="https://tophub.today/c/news" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: red" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-map">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">地图</div>
+<a href="https://ditu.amap.com/" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #1ba784" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fab fa-weixin">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">微信文件助手</div>
+<a href="https://filehelper.weixin.qq.com" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #b5b4ff" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-at">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">临时邮箱</div>
+<a href="https://temp-mail.io" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ef5959" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-project-diagram">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">网络诊断</div>
+<a href="https://ip.skk.moe" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ee3d7d" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-qrcode">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">二维码生成</div>
+<a href="https://cli.im" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #44aefb" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-file-upload">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">文档转换</div>
+<a href="https://pdfcandy.com/cn/" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ef5959" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-tv">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">聚合直播</div>
+<a href="https://lemonlive.deno.dev" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ff7676" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-share-alt">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">临时分享</div>
+<a href="https://wormhole.app" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #0527af" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fab fa-windows">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">一键激活</div>
+<a href="https://kms.cx" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ef4444" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-water">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">视频无水印</div>
+<a href="https://dy.kukutool.com" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: #ff5500" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fas fa-guitar">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">网络收音机</div>
+<a href="https://radio5.cn" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-3 col-md-2 col-lg-2">
+<div class="list-item">
+<div style="background: linear-gradient(0deg,#434343 0%, #000000 100%)" class="btn btn-link btn-icon btn-md btn-rounded mx-auto mb-2">
+<span>
+<i class="fab fa-font-awesome-flag">
+</i>
+</span>
+</div>
+<div class="text-sm text-muted">Font Awesome</div>
+<a href="https://fontawesome.com/v5/search?o=r&amp;m=free" target="_blank" class="list-goto">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-hh-7+2h-1m-4u" data-ad-client="ca-pub-8773997952639831" data-ad-slot="4336550278">
+</ins> <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> </div>
+<div class="col-12">
+<div class="card card-xl" id="c-1">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/video">
+<i class="fas fa-sm fa-video">
+</i> 影视</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="3" class="nav-link active">在线看</span>
+</li>
+<li class="nav-item">
+<span data-mid="6" class="nav-link">下载</span>
+</li>
+<li class="nav-item">
+<span data-mid="7" class="nav-link">网盘</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="以海外影视资源为主的老牌网站">
+<a role="button" class="list-item" cid="21" href="https://ddys.la" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/In2xLR2.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 低端影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">以海外影视资源为主的老牌网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/21/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费在线影院">
+<a role="button" class="list-item" cid="171" href="https://nnyy.la" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/QQdDsp9.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 努努影院 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费在线影院</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/171/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费在线电影大全">
+<a role="button" class="list-item" cid="170" href="https://monkey-flix.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/tFb8H0A.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 猴影工坊 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费在线电影大全</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/170/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="超清秒播体验">
+<a role="button" class="list-item" cid="152" href="https://www.didahd.pro" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/bTM3adF.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 嘀嗒影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">超清秒播体验</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/152/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费实用的影视资源搜索神器">
+<a role="button" class="list-item" cid="150" href="https://www.ymck.pro" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Sebmm9g.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 影猫の仓库 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费实用的影视资源搜索神器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/150/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="高清、无广、更新快">
+<a role="button" class="list-item" cid="145" href="https://qqqys.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/QxNfqpu.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 3Q影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">高清、无广、更新快</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/145/" target="_blank">
+<span data-bs-toggle="tooltip" title="部分播放线路存在影片内置广告">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="以海外影视在线观看为主的影视资源网站">
+<a role="button" class="list-item" cid="144" href="https://hdmoli.org" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/xIEoU7D.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> HDmoli </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">以海外影视在线观看为主的影视资源网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/144/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="海外影视剧、国内高口碑影视剧资源为主的在线影视网站">
+<a role="button" class="list-item" cid="86" href="https://gaze.run" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/wNTNRdl.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 注视影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">海外影视剧、国内高口碑影视剧资源为主的在线影视网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/86/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="主打海外影视剧资源，致力于最轻松的追剧体验">
+<a role="button" class="list-item" cid="85" href="https://www.novipnoad.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/AIgBo7g.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> No视频 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">主打海外影视剧资源，致力于最轻松的追剧体验</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/85/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费观看全网影视剧资源的网站">
+<a role="button" class="list-item" cid="66" href="https://www.zhenlang.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/09WjlR2.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 真狼影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费观看全网影视剧资源的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/66/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="可免费在线观看全网高清影视剧的综合型网站">
+<a role="button" class="list-item" cid="65" href="https://sszzyy.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/gAY5Zh3.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 西瓜影院 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">可免费在线观看全网高清影视剧的综合型网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/65/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费观看全网影视剧的综合影视网站">
+<a role="button" class="list-item" cid="64" href="http://2.ysgc.top" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/bwD9lCz.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 影视工厂 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费观看全网影视剧的综合影视网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/64/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="原哔嘀影视，内容丰富的综合型老牌优质影视名站">
+<a role="button" class="list-item" cid="63" href="https://xl01.com.de" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/EHce32M.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 修罗影视 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">原哔嘀影视，内容丰富的综合型老牌优质影视名站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/63/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="海外资源为主的老牌知名影视网站">
+<a role="button" class="list-item" cid="22" href="https://www.zxzjys.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Bwam6dc.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 在线之家 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">海外资源为主的老牌知名影视网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/22/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="高清、秒播不卡顿的综合型影视资源网站">
+<a role="button" class="list-item" cid="20" href="https://www.czzymovie.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Mis53u9.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 厂长资源 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">高清、秒播不卡顿的综合型影视资源网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/20/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="专注泰剧的在线追剧网站">
+<a role="button" class="list-item" cid="19" href="https://txquu.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/daBRXxM.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 泰小圈 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">专注泰剧的在线追剧网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/19/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费在线视频搜索与观看平台">
+<a role="button" class="list-item" cid="3" href="https://libretv.liumingye.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://libretv.liumingye.cn/image/logo-black.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> LibreTV </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费在线视频搜索与观看平台</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/libretv/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-4">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/cat">
+<i class="fas fa-sm fa-cat">
+</i> 二次元</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="5" class="nav-link active">动漫</span>
+</li>
+<li class="nav-item">
+<span data-mid="8" class="nav-link">漫画</span>
+</li>
+<li class="nav-item">
+<span data-mid="10" class="nav-link">下载站</span>
+</li>
+<li class="nav-item">
+<span data-mid="9" class="nav-link">神器</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="完全免费、无须注册、高速播放、更新及时的专业在线樱花动漫站">
+<a role="button" class="list-item" cid="27" href="http://www.yinghuajinju.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/0XBW9YE.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 樱花动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">完全免费、无须注册、高速播放、更新及时的专业在线樱花动漫站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/27/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日番、国番、美番在线观看的动漫站">
+<a role="button" class="list-item" cid="118" href="https://www.fanchawu.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/J3tpPiu.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 番茶屋 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日番、国番、美番在线观看的动漫站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/118/" target="_blank">
+<span data-bs-toggle="tooltip" title="部分播放线路存在影片内置广告">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供日本动漫免费在线观看的网站">
+<a role="button" class="list-item" cid="17" href="https://www.huazidm.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/eYWPbma.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 花子动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供日本动漫免费在线观看的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/17/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供国漫、日漫、美漫的在线追番网站">
+<a role="button" class="list-item" cid="16" href="https://www.dmwo.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/twGNb9E.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 动漫窝 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供国漫、日漫、美漫的在线追番网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/16/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="4K超清日番、国番、美番在线观看的动漫网站">
+<a role="button" class="list-item" cid="15" href="https://cn.xgcartoon.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/74E9Z7X.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 西瓜卡通 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">4K超清日番、国番、美番在线观看的动漫网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/15/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日本动漫资源在线观看的网站">
+<a role="button" class="list-item" cid="14" href="https://www.mutedm.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/PMhMPa1.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 风铃动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日本动漫资源在线观看的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/14/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="以在线追番为主的二次元分享社区">
+<a role="button" class="list-item" cid="13" href="https://www.ezdmw.site" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/YlJzsLG.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> E站弹幕网 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">以在线追番为主的二次元分享社区</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/13/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日本动漫为主的免费在线观看动漫网站">
+<a role="button" class="list-item" cid="12" href="https://www.mutedm.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/4LXzy42.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> MuteFun动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日本动漫为主的免费在线观看动漫网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/12/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供日本动漫在线观看的追番网站">
+<a role="button" class="list-item" cid="11" href="https://animoe.org" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/pxMkvSA.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Animoe动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供日本动漫在线观看的追番网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/11/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="以日本动漫在线观看为主的高清动漫网站，适合海外用户。">
+<a role="button" class="list-item" cid="10" href="https://acg.pekolove.net" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/w6Igedp.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 佩可爱动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">以日本动漫在线观看为主的高清动漫网站，适合海外用户。</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/10/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日番、美番、真人番剧为主的在线动漫网站">
+<a role="button" class="list-item" cid="9" href="https://www.jzsdm1.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Z9eDpno.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 酱紫社动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日番、美番、真人番剧为主的在线动漫网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/9/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日番神器：界面简洁、更新速度快的日本动漫网站">
+<a role="button" class="list-item" cid="8" href="https://anime1.me" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/1KOwxAD.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Anime1.me </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日番神器：界面简洁、更新速度快的日本动漫网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/anime1-me/" target="_blank">
+<span data-bs-toggle="tooltip" title="存在大尺度裸露广告，请谨慎浏览">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="日番、美番为主的番剧影视资源站">
+<a role="button" class="list-item" cid="7" href="https://anime.girigirilove.icu" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/BwngDZV.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> girigiri爱动漫 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">日番、美番为主的番剧影视资源站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/7/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="专注提供日本动漫免费在线观看的弹幕视频网站">
+<a role="button" class="list-item" cid="4" href="https://www.5dm.link" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/yboZM4a.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> D站 – 第五弹 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">专注提供日本动漫免费在线观看的弹幕视频网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/diwudan/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-11">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/music">
+<i class="fas fa-sm fa-music">
+</i> 音乐</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="16" class="nav-link active">听歌</span>
+</li>
+<li class="nav-item">
+<span data-mid="22" class="nav-link">无损音乐</span>
+</li>
+<li class="nav-item">
+<span data-mid="23" class="nav-link">电台</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="支持自定义音源、各大主流歌单导入的免费音乐APP">
+<a role="button" class="list-item" cid="177" href="https://tools.liumingye.cn/site/177/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/kq72fRW.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 元力音乐 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">支持自定义音源、各大主流歌单导入的免费音乐APP</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/177/" target="_blank">
+<span data-bs-toggle="tooltip" title="安卓/鸿蒙客户端">
+<i class="if if-anzhuo">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="客户端软件">
+<i class="if if-app">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="一个纯粹的音乐网站，专注在线听歌">
+<a role="button" class="list-item" cid="174" href="https://tonzhon.whamon.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Iw7ic4W.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 铜钟 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">一个纯粹的音乐网站，专注在线听歌</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/174/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费的音乐APP，支持四大平台曲库">
+<a role="button" class="list-item" cid="143" href="https://tools.liumingye.cn/site/143/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/iIrMAiq.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 青听音乐 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费的音乐APP，支持四大平台曲库</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/143/" target="_blank">
+<span data-bs-toggle="tooltip" title="安卓/鸿蒙客户端">
+<i class="if if-anzhuo">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="客户端软件">
+<i class="if if-app">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="支持5大平台的在线网页音乐播放器">
+<a role="button" class="list-item" cid="142" href="https://ovoeo.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/eLtHCRx.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Music CenGuiGui </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">支持5大平台的在线网页音乐播放器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/142/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="网易云音乐第三方播放器，支持网页、Windows、Mac、Linux版本">
+<a role="button" class="list-item" cid="103" href="https://tools.liumingye.cn/site/103/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/DKUU6nr.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> SPlayer </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">网易云音乐第三方播放器，支持网页、Windows、Mac、Linux版本</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/103/" target="_blank">
+<span data-bs-toggle="tooltip" title="Windows客户端">
+<i class="if if-win">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="MacOS客户端">
+<i class="if if-macos">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="客户端软件">
+<i class="if if-app">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="高颜值的网易云第三方播放器，支持 Windows、macOS、Linux 客户端">
+<a role="button" class="list-item" cid="102" href="https://tools.liumingye.cn/site/102/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/ky5FdDr.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> YesPlayMusic </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">高颜值的网易云第三方播放器，支持 Windows、macOS、Linux 客户端</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/102/" target="_blank">
+<span data-bs-toggle="tooltip" title="Windows客户端">
+<i class="if if-win">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="MacOS客户端">
+<i class="if if-macos">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="高颜值的网易云音乐第三方播放器">
+<a role="button" class="list-item" cid="72" href="https://tools.liumingye.cn/site/72/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/QTlENSp.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Alger Music </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">高颜值的网易云音乐第三方播放器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/72/" target="_blank">
+<span data-bs-toggle="tooltip" title="Windows客户端">
+<i class="if if-win">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="MacOS客户端">
+<i class="if if-macos">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="安卓/鸿蒙客户端">
+<i class="if if-anzhuo">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="支持安卓、PC的音乐播放器，开源、免费、无广告、可定制化的全网听歌神器">
+<a role="button" class="list-item" cid="39" href="https://tools.liumingye.cn/site/39/" target="_blank">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/NrTtGDz.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> MusicFree </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">支持安卓、PC的音乐播放器，开源、免费、无广告、可定制化的全网听歌神器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/39/" target="_blank">
+<span data-bs-toggle="tooltip" title="Windows客户端">
+<i class="if if-win">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="MacOS客户端">
+<i class="if if-macos">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="安卓/鸿蒙客户端">
+<i class="if if-anzhuo">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="支持国内外多个平台曲库的在线听歌网站">
+<a role="button" class="list-item" cid="31" href="https://music.gdstudio.org" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/yvxC3Py.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> GD音乐台 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">支持国内外多个平台曲库的在线听歌网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/31/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供歌曲在线试听、免费下载的音乐网站">
+<a role="button" class="list-item" cid="30" href="https://www.qqmp3.vip" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/qmYgFFq.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 米兔音乐 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供歌曲在线试听、免费下载的音乐网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/30/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供MP3、WAV、Flac等格式的歌曲下载网站">
+<a role="button" class="list-item" cid="29" href="https://www.buguyy.top" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/yg6ixtf.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 布谷音乐 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供MP3、WAV、Flac等格式的歌曲下载网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/29/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="网易云音乐第三方在线音乐播放器">
+<a role="button" class="list-item" cid="28" href="https://netease-music.fe-mm.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/JBhcvvD.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> mmPlayer </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">网易云音乐第三方在线音乐播放器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/28/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="以网易云为主的网页版免费在线音乐播放器，支持歌曲免费下载">
+<a role="button" class="list-item" cid="23" href="https://mu-jie.cc/musicBox/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/6ILsN4k.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 昔枫音乐盒 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">以网易云为主的网页版免费在线音乐播放器，支持歌曲免费下载</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/23/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供在线听歌、MP3歌曲下载的网站">
+<a role="button" class="list-item" cid="71" href="https://zz123.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/fJdzVKe.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 种子音乐 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供在线听歌、MP3歌曲下载的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/71/" target="_blank">
+<span data-bs-toggle="tooltip" title="需要观看视频解锁权限">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-12">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/book">
+<i class="fas fa-sm fa-book">
+</i> 阅读</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="17" class="nav-link active">电子书</span>
+</li>
+<li class="nav-item">
+<span data-mid="18" class="nav-link">小说</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="世界上最大的开源、开放数据图书馆，提供全球各种电子书、文献等内容供用户下载">
+<a role="button" class="list-item" cid="58" href="https://zh.annas-archive.org" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/p8byqv8.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 安娜的档案 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">世界上最大的开源、开放数据图书馆，提供全球各种电子书、文献等内容供用户下载</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/58/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="自由开放的古籍数字图书馆">
+<a role="button" class="list-item" cid="135" href="https://www.shuge.org" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/i4HEYTc.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 书格 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">自由开放的古籍数字图书馆</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/135/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="电子书、文档搜索引擎">
+<a role="button" class="list-item" cid="133" href="https://www.jiumodiary.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/eHqvqY6.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 鸠摩搜索 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">电子书、文档搜索引擎</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/133/" target="_blank">
+<span data-bs-toggle="tooltip" title="下载有限制，需关注公众号获取验证码才可下载">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供电子书籍在线阅读和下载的网站">
+<a role="button" class="list-item" cid="132" href="https://www.feiku6.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/gcc1E4O.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 飞库文学网 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供电子书籍在线阅读和下载的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/132/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供全网电子书、小说免费下载的电子书网站">
+<a role="button" class="list-item" cid="131" href="https://honeypdf.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="http://cdn.liumingye.cn/imgur/9m7NvR4.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 电子书之家 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供全网电子书、小说免费下载的电子书网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/131/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供在线阅读文学、诗歌、散文随笔等作品的网站">
+<a role="button" class="list-item" cid="130" href="https://www.kepub.net" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/6rnuI2h.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 可阅文学网 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供在线阅读文学、诗歌、散文随笔等作品的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/130/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="专注分享mobi格式电子书的网站">
+<a role="button" class="list-item" cid="104" href="https://mobitushu.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/UdsWVVg.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> mobi图书网 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">专注分享mobi格式电子书的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/104/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="分享优质书单并提供免费下载电子书的网站">
+<a role="button" class="list-item" cid="79" href="https://www.yidanshu.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Ygahbl6.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 一单书 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">分享优质书单并提供免费下载电子书的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/79/" target="_blank">
+<span data-bs-toggle="tooltip" title="需关注公众号获取口令才可下载">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费电子书（网盘）下载平台">
+<a role="button" class="list-item" cid="78" href="https://sobooks.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/XNJ4hQ5.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> SoBooks </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费电子书（网盘）下载平台</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/78/" target="_blank">
+<span data-bs-toggle="tooltip" title="下载需关注公众号获取验证码">
+<i class="if if-warn">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="电子书、小说、有声书资源下载的网站">
+<a role="button" class="list-item" cid="26" href="https://www.17dushu.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Ez9SrgJ.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 一起读书 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">电子书、小说、有声书资源下载的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/26/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费下载pdf/epub/mobi电子书的网站">
+<a role="button" class="list-item" cid="25" href="https://bookplusapp.top" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/qPBCOc1.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 书海旅人 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费下载pdf/epub/mobi电子书的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/25/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供电子书、有声读物下载的网站">
+<a role="button" class="list-item" cid="24" href="https://tstrs.me/search" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/MoL6bMY.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> SaltyLeo书架 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供电子书、有声读物下载的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/24/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-13">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/gamepad">
+<i class="fas fa-sm fa-gamepad">
+</i> 游戏</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="33" class="nav-link active">在线小游戏</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="数十款免费的在线网页游戏平台">
+<a role="button" class="list-item" cid="168" href="https://www.freegame.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/7ECNUI8.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Freegame </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">数十款免费的在线网页游戏平台</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/168/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供上万款Flash游戏资源的网站">
+<a role="button" class="list-item" cid="137" href="https://flash.homes" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/6oVluu2.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Flash保存计划 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供上万款Flash游戏资源的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/137/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="近2000款在线DOS游戏的网站">
+<a role="button" class="list-item" cid="128" href="https://dos.lol" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/HCn4KK3.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 在线DOS游戏 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">近2000款在线DOS游戏的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/128/" target="_blank">
+<span data-bs-toggle="tooltip" title="Windows客户端">
+<i class="if if-win">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="MacOS客户端">
+<i class="if if-macos">
+</i>
+</span>
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供数千种经典老游戏的网页版资源（支持键盘/手柄设置）的网站">
+<a role="button" class="list-item" cid="127" href="https://zaixianwan.app" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/HCn4KK3.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 老游戏在线玩 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供数千种经典老游戏的网页版资源（支持键盘/手柄设置）的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/127/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供超9万款的线上游戏网站">
+<a role="button" class="list-item" cid="126" href="https://zh.y8.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/a6denIO.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Y8游戏 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供超9万款的线上游戏网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/126/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="国外免费小游戏在线平台">
+<a role="button" class="list-item" cid="93" href="https://www.crazygames.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/05B7OPa.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> CrazyGames </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">国外免费小游戏在线平台</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/93/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供免费的在线小游戏的网站">
+<a role="button" class="list-item" cid="50" href="https://poki.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/ziCmlAr.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Poki小游戏 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供免费的在线小游戏的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/50/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="HTML5 + JavaScript 游戏「电脑麻将」">
+<a role="button" class="list-item" cid="41" href="https://tools.liumingye.cn/majiang/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://tool.liumingye.cn/majiang/img/icon.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 电脑麻将 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">HTML5 + JavaScript 游戏「电脑麻将」</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/41/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="控制水果下落位置，碰撞合成">
+<a role="button" class="list-item" cid="40" href="https://tools.liumingye.cn/watermelon/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://ae01.alicdn.com/kf/Hc7dca8e99fc74c92bd8c648885323b4b8.jpg" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 合成大西瓜 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">控制水果下落位置，碰撞合成</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/40/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-14">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/fan">
+<i class="fas fa-sm fa-fan">
+</i> 娱乐</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="26" class="nav-link active">壁纸</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="ACG免费壁纸">
+<a role="button" class="list-item" cid="169" href="https://www.acg66.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/RSSqmpD.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> ACG壁纸 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">ACG免费壁纸</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/169/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供手机和电脑壁纸的老牌壁纸网站">
+<a role="button" class="list-item" cid="129" href="http://www.netbian.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/hYcuvQS.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 彼岸桌面 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供手机和电脑壁纸的老牌壁纸网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/129/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="国漫女神Ai绘画为主的手机壁纸图库">
+<a role="button" class="list-item" cid="109" href="https://guomantuku.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/rIMJnPL.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 国漫图库 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">国漫女神Ai绘画为主的手机壁纸图库</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/109/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="专注ACG壁纸的二次元壁纸网站">
+<a role="button" class="list-item" cid="108" href="https://www.someacg.top" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/MIvKJ6Z.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> SomeACG壁纸 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">专注ACG壁纸的二次元壁纸网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/108/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="手机壁纸控的宝藏网站">
+<a role="button" class="list-item" cid="53" href="https://bizihu.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/8dr7Gn4.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 壁纸湖 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">手机壁纸控的宝藏网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/53/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供PC电脑壁纸、手机壁纸的网站">
+<a role="button" class="list-item" cid="52" href="https://www.baozangtuku.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/bA57enl.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 宝藏图库 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供PC电脑壁纸、手机壁纸的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/52/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供二次元美女壁纸、头像的资源网站">
+<a role="button" class="list-item" cid="51" href="https://mt123.cc" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Pe40Svv.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 美图123 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供二次元美女壁纸、头像的资源网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/51/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="提供高清电脑桌面壁纸的资源网站">
+<a role="button" class="list-item" cid="38" href="https://tools.liumingye.cn/wallpaper/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/ycBO3om.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 在线壁纸 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">提供高清电脑桌面壁纸的资源网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/38/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-15">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/toolbox">
+<i class="fas fa-sm fa-toolbox">
+</i> 工具箱</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="34" class="nav-link active">在线工具</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="免费全能文档解析神器，PDF转换">
+<a role="button" class="list-item" cid="172" href="https://mineru.net/OpenSourceTools/Extractor" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/6KUUxHn.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> MinerU </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费全能文档解析神器，PDF转换</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/172/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="PDF工具箱，免费转换、压缩、编辑PDF文档">
+<a role="button" class="list-item" cid="136" href="https://smallpdf.com/cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/3xGtkhy.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Smallpdf </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">PDF工具箱，免费转换、压缩、编辑PDF文档</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/136/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="为键盘工作者设计的单词与肌肉记忆锻炼软件">
+<a role="button" class="list-item" cid="134" href="https://qwerty.liumingye.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/WlVXmZL.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Qwerty Learner </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">为键盘工作者设计的单词与肌肉记忆锻炼软件</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/134/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="免费的文件在线传输工具">
+<a role="button" class="list-item" cid="111" href="https://wormhole.app" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/hpWlPCL.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Wormhole </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">免费的文件在线传输工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/111/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="多张图片合并成一张的在线拼图工具">
+<a role="button" class="list-item" cid="110" href="https://kejiweixun.com/tools/merge-images" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/26QDxu8.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 图片拼接 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">多张图片合并成一张的在线拼图工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/110/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="超长小说一键转换自然流畅的语音文件">
+<a role="button" class="list-item" cid="105" href="https://easyvoice.ioplus.tech" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/0Kj5AIG.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 文字转语音 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">超长小说一键转换自然流畅的语音文件</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/105/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="在线配音、免费的文本转语音工具">
+<a role="button" class="list-item" cid="101" href="https://ttsmaker.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/gm0TqgQ.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 马克配音 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">在线配音、免费的文本转语音工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/101/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="在线修改图片文字的工具">
+<a role="button" class="list-item" cid="100" href="https://tugaigai.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/SB9VYGP.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 图改改 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">在线修改图片文字的工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/100/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="智能图片无损放大的工具">
+<a role="button" class="list-item" cid="94" href="https://bigjpg.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/x2Fqq5g.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Bigjpg </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">智能图片无损放大的工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/94/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="让照片/文档/文件秒变扫描件的网站">
+<a role="button" class="list-item" cid="61" href="https://lookscanned.io/scan" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/jM4nkJU.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Look Scanned </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">让照片/文档/文件秒变扫描件的网站</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/61/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="跨平台文件传输助手">
+<a role="button" class="list-item" cid="57" href="https://yunge.in" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/SIAZoog.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 云鸽传送 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">跨平台文件传输助手</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/57/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="在线音频格式转换器，支持十余种格式在线转换">
+<a role="button" class="list-item" cid="56" href="https://audio-convert.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/t3eeWyU.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Audio Convert </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">在线音频格式转换器，支持十余种格式在线转换</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/56/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="一键去除图片背景">
+<a role="button" class="list-item" cid="55" href="https://www.remove.bg" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/7a6wd0i.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Removebg </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">一键去除图片背景</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/55/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="智能PNG、JPEG图片在线压缩工具">
+<a role="button" class="list-item" cid="54" href="https://tinify.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/vJ9D4Fu.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> TinyPNG </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">智能PNG、JPEG图片在线压缩工具</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/54/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="在任何设备上解锁已购的加密音乐！">
+<a role="button" class="list-item" cid="49" href="https://unlock-music.liumingye.cn" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/7IkMsbr.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 音乐解锁 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">在任何设备上解锁已购的加密音乐！</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/49/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="card card-xl" id="c-21">
+<div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
+<a class="h4" href="https://tools.liumingye.cn/category/box">
+<i class="fas fa-sm fa-box">
+</i> 软件</a>
+<ul class="card-tab d-flex flex-nowrap nav text-sm overflow-x-auto">
+<span class="nav-slider">
+</span>
+<li class="nav-item">
+<span data-mid="35" class="nav-link active">装机必备</span>
+</li>
+</ul>
+</div>
+<div class="card-body">
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-2 g-md-3 list-grid list-grid-padding">
+<div title="国民级聊天软件">
+<a role="button" class="list-item" cid="62" href="https://weixin.qq.com" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/KHbEZLy.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 微信 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">国民级聊天软件</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/62/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="高质量游戏平台">
+<a role="button" class="list-item" cid="148" href="https://store.steampowered.com/about/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/u9U6rjq.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Steam </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">高质量游戏平台</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/148/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="快速搜索文件和文件夹">
+<a role="button" class="list-item" cid="147" href="https://www.voidtools.com/zh-cn/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/BKs6YSN.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Everything </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">快速搜索文件和文件夹</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/147/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="专为您而打造的浏览器">
+<a role="button" class="list-item" cid="146" href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/huX6FMa.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> 谷歌浏览器 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">专为您而打造的浏览器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/146/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="微软Office办公软件">
+<a role="button" class="list-item" cid="87" href="https://199998.xyz/xb21cn_office/office_xb21cn_2025" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/WjHfElC.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Microsoft Office 精简版 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">微软Office办公软件</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/87/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="强大的的高清视频播放器">
+<a role="button" class="list-item" cid="70" href="https://potplayer.daum.net/?lang=zh_CN" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/0IXtDPN.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> PotPlayer </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">强大的的高清视频播放器</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/70/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+<div title="一款超好用的解压缩软件">
+<a role="button" class="list-item" cid="69" href="https://423down.lanzouo.com/b0f1mc0cd" target="_blank" rel="nofollow">
+<div class="media w-36 rounded">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Hpn5L0a.png" class="media-content lazy">
+</div>
+<div class="list-content">
+<div class="list-body">
+<div class="list-title text-md h-1x"> Bandizip 专业版 </div>
+<div class="list-desc text-xx text-muted mt-1">
+<div class="h-1x">一款超好用的解压缩软件</div>
+</div>
+</div>
+</div>
+</a>
+<div class="tr">
+<a href="https://tools.liumingye.cn/site/69/" target="_blank">
+<span data-bs-toggle="tooltip" title="网站详情">
+<i class="if if-youshang">
+</i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="widget d-none d-lg-block">
+<div class="card card-md widget-fixed">
+<div class="card-header h4">最新网站</div>
+<div class="card-body recent-post">
+<a title="支持自定义音源、各大主流歌单导入的免费音乐APP" href="https://tools.liumingye.cn/site/177/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/kq72fRW.png" class="lazy">元力音乐</a>
+<a title="无损音乐歌曲下载网站" href="https://tools.liumingye.cn/site/176/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Zx51E1V.png" class="lazy">音乐坊</a>
+<a title="下载全网MP3歌曲、无损音乐的网站" href="https://tools.liumingye.cn/site/175/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="http://cdn.liumingye.cn/imgur/l6FMM4a.png" class="lazy">糖果音乐</a>
+<a title="一个纯粹的音乐网站，专注在线听歌" href="https://tools.liumingye.cn/site/174/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/Iw7ic4W.png" class="lazy">铜钟</a>
+<a title="免费全能文档解析神器，PDF转换" href="https://tools.liumingye.cn/site/172/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/6KUUxHn.png" class="lazy">MinerU</a>
+<a title="免费在线影院" href="https://tools.liumingye.cn/site/171/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/QQdDsp9.png" class="lazy">努努影院</a>
+<a title="免费在线电影大全" href="https://tools.liumingye.cn/site/170/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/tFb8H0A.png" class="lazy">猴影工坊</a>
+<a title="ACG免费壁纸" href="https://tools.liumingye.cn/site/169/" target="_blank">
+<img src="https://tools.liumingye.cn/usr/themes/ITEM/assets/image/default.gif" data-src="https://cdn.liumingye.cn/imgur/RSSqmpD.png" class="lazy">ACG壁纸</a>
+</div>
+</div>
+<div class="card card-md">
+<div class="card-header h4">热门标签</div>
+<div class="card-body post-tags">
+<a class="tag-key tag-bg3" href="https://tools.liumingye.cn/tag/Android%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="Android客户端">Android客户端</a>
+<a class="tag-key tag-bg4" href="https://tools.liumingye.cn/tag/macOS%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="macOS客户端">macOS客户端</a>
+<a class="tag-key tag-bg4" href="https://tools.liumingye.cn/tag/Windows%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="Windows客户端">Windows客户端</a>
+<a class="tag-key tag-bg4" href="https://tools.liumingye.cn/tag/GIthub%E5%BC%80%E6%BA%90/" title="GIthub开源">GIthub开源</a>
+<a class="tag-key tag-bg7" href="https://tools.liumingye.cn/tag/Linux%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="Linux客户端">Linux客户端</a>
+<a class="tag-key tag-bg3" href="https://tools.liumingye.cn/tag/APP/" title="APP">APP</a>
+<a class="tag-key tag-bg4" href="https://tools.liumingye.cn/tag/%E5%9C%A8%E7%BA%BF%E9%9F%B3%E4%B9%90/" title="在线音乐">在线音乐</a>
+<a class="tag-key tag-bg5" href="https://tools.liumingye.cn/tag/%E8%A7%86%E9%A2%91/" title="视频">视频</a>
+<a class="tag-key tag-bg6" href="https://tools.liumingye.cn/tag/%E7%BD%91%E9%A1%B5%E7%AB%AF/" title="网页端">网页端</a>
+<a class="tag-key tag-bg6" href="https://tools.liumingye.cn/tag/iOS%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="iOS客户端">iOS客户端</a>
+</div>
+</div>
+</div>
+</main>
+<div class="friend px-1 px-sm-2 px-lg-3 px-xxl-5">
+<div class="h4">
+<i class="fas fa-user-friends">
+</i> 小伙伴们</div>
+<ul>
+<li>
+<a href="https://www.qhdh.top" title="" target="_blank" rel="noopener">青禾导航</a>
+</li>
+<li>
+<a href="https://www.fu365.com" title="" target="_blank" rel="noopener">fu365主页</a>
+</li>
+<li>
+<a href="https://www.qzhuye.com" title="" target="_blank" rel="noopener">轻主页</a>
+</li>
+</ul>
+</div>
+<footer class="site-footer">
+<div class="container-xl">
+<div class="copyright text-xs text-muted text-center">
+<span class="d-inline-block">? 2015-2025</span>
+<span class="d-inline-block">?|?</span>
+<a class="text-muted" href="https://tools.liumingye.cn/" rel="home">刘明野的工具箱</a>
+</div>
+</div>
+</footer>
+<div class="toast position-fixed bottom-0 end-0 p-1 m-2" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="d-flex">
+<div class="toast-body">
+</div>
+<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="关闭">
+</button>
+</div>
+</div>
+<ul class="site-fixedmenu">
+<li id="scrollToTOP" style="display:none" data-bs-container=".site-aside" data-bs-toggle="tooltip" data-bs-placement="left" title="回到顶部">
+<div class="btn btn-start btn-icon">
+<span>
+<i class="fas fa-arrow-up">
+</i>
+</span>
+</div>
+</li>
+<li class="share-btn" data-bs-container=".site-aside" data-bs-toggle="tooltip" data-bs-placement="left" title="分享给好友、朋友圈、豆瓣、小红书...">
+<div class="btn btn-start btn-icon">
+<span>
+<i class="fas fa-share">
+</i>
+</span>
+</div>
+</li>
+</ul>
+</div> <script src="https://tools.liumingye.cn/usr/themes/ITEM/assets/js/main.min.js?v=250824" type="text/javascript">
+</script> <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"dab51520238849cca687bea77a9a00bc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous">
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a779cda9a433d63',t:'MTc2NDY0NDgzMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html> 
+

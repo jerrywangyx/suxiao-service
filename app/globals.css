@@ -16,7 +16,11 @@
 html,
 body {
   min-height: 100%;
-  background: #f3f6fb url('/img/bg.jpg') repeat fixed;
+}
+
+body {
+  min-height: 100vh;
+  background: #f8f9fb;
   color: #333;
 }
 
@@ -30,24 +34,26 @@ li {
   list-style: none;
 }
 
-body {
+.player-page {
   min-height: 100vh;
+  background: #f3f6fb url('/img/bg.jpg') repeat fixed;
+  padding: 0;
 }
 
-.app-container {
+.player-page .app-container {
   background: rgba(255, 255, 255, 0.98);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main-body {
+.player-page .main-body {
   padding-top: 1rem;
   padding-bottom: 1.5rem;
   flex: 1 1 auto;
 }
 
-.aim-topbar {
+.player-page .aim-topbar {
   min-width: 360px;
   width: 100%;
   height: 60px;
@@ -58,7 +64,7 @@ body {
   z-index: 10;
 }
 
-.aim-header {
+.player-page .aim-header {
   max-width: 1140px;
   width: 94%;
   height: 60px;
@@ -68,42 +74,42 @@ body {
   justify-content: space-between;
 }
 
-.aim-title a {
+.player-page .aim-title a {
   font-size: 20px;
   font-weight: 500;
   color: #fff;
 }
 
-.panel {
+.player-page .panel {
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 25px 65px -45px rgba(0, 0, 0, 0.4);
 }
 
-.panel-heading {
+.player-page .panel-heading {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.parser-panel .panel-body {
+.player-page .parser-panel .panel-body {
   padding: 24px;
 }
 
-.parser-panel--top {
+.player-page .parser-panel--top {
   margin-top: 0;
 }
 
-.parser-form {
+.player-page .parser-form {
   width: 100%;
 }
 
-.parser-inline-group {
+.player-page .parser-inline-group {
   display: flex;
   flex-wrap: nowrap;
   gap: 16px;
   align-items: flex-end;
 }
 
-.parser-field {
+.player-page .parser-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -111,34 +117,34 @@ body {
   min-width: 0;
 }
 
-.parser-field--channel {
+.player-page .parser-field--channel {
   flex: 1 1 0;
   max-width: 220px;
 }
 
-.parser-field--stretch {
+.player-page .parser-field--stretch {
   flex: 4 1 0;
 }
 
-.parser-field label {
+.player-page .parser-field label {
   font-size: 14px;
   font-weight: 600;
   color: #333;
 }
 
-.parser-field select,
-.parser-field input {
+.player-page .parser-field select,
+.player-page .parser-field input {
   height: 48px;
   padding: 0 12px;
 }
 
-.parser-action {
+.player-page .parser-action {
   display: flex;
   align-items: flex-end;
   flex: 0 0 auto;
 }
 
-.parser-action button {
+.player-page .parser-action button {
   height: 48px;
   padding: 0 26px;
   font-weight: 600;
@@ -146,7 +152,7 @@ body {
   min-width: 76px;
 }
 
-.player-shell {
+.player-page .player-shell {
   position: relative;
   width: 100%;
   height: 520px;
@@ -155,13 +161,13 @@ body {
   background: #000;
 }
 
-.player-shell iframe {
+.player-page .player-shell iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.player-placeholder {
+.player-page .player-placeholder {
   position: absolute;
   inset: 0;
   display: flex;
@@ -174,74 +180,161 @@ body {
   background: linear-gradient(135deg, #050505, #1a1a1a);
 }
 
-.player-placeholder-content {
+.player-page .player-placeholder-content {
   position: relative;
   z-index: 1;
   max-width: 420px;
 }
 
-.player-placeholder h3 {
+.player-page .player-placeholder h3 {
   margin-bottom: 12px;
 }
 
-.tips ol {
+.player-page .tips ol {
   padding-left: 18px;
 }
 
-.tips li {
+.player-page .tips li {
   margin-bottom: 8px;
   list-style: decimal;
 }
 
-.alert-success {
+.player-page .alert-success {
   border-radius: 0;
 }
 
-.footer-links {
+.player-page .footer-links {
   text-align: center;
   padding: 30px 0;
   color: #eee;
 }
 
-.footer-links a {
+.player-page .footer-links a {
   color: #fff;
 }
 
-.footer-links .statement {
+.player-page .footer-links .statement {
   margin-top: 12px;
   font-size: 14px;
   color: #ddd;
 }
 
+/* 确保布局正确 */
+.hot-rank, .tool-direct {
+  margin-bottom: 1rem;
+}
+
+/* 影视分类区域独立成行 */
+.content > .row > .col-12:not(.col-lg-4):not(.col-lg-8) {
+  margin-top: 0.5rem;
+}
+
+/* Logo文字样式 */
+.aside-brand .brand-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  display: block;
+  padding: 10px 15px;
+}
+
+/* 隐藏侧边栏中可能存在的logo图片 */
+.aside-brand img {
+  display: none;
+}
+
+/* 首页底部版权 */
+.site-footer {
+  background: #f8f9fb;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.site-footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* 工具直达显示三排，多余的上下滚动 */
+.tool-direct .card-body {
+  max-height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+/* 手机端工具直达滚动高度 */
+@media (max-width: 991px) {
+  .tool-direct .card-body {
+    max-height: 450px;
+  }
+}
+
+/* 美化滚动条 */
+.tool-direct .card-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tool-direct .card-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tool-direct .card-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.tool-direct .card-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
 @media (max-width: 768px) {
-  .aim-topbar {
+  .player-page .aim-topbar {
     height: auto;
   }
 
-  .aim-header {
+  .player-page .aim-header {
     padding: 12px 0;
   }
 
-  .parser-inline-group {
+  .player-page .parser-inline-group {
     gap: 8px;
     flex-wrap: nowrap;
     align-items: stretch;
   }
 
-  .parser-field--channel {
+  .player-page .parser-field--channel {
     flex: 1 1 0;
     max-width: none;
     min-width: 72px;
   }
 
-  .parser-field--stretch {
+  .player-page .parser-field--stretch {
     flex: 4 1 0;
   }
 
-  .parser-action button {
-    padding: 0 8px;
-    min-width: 40px;
-    height: 36px;
-    font-size: 13px;
+  .player-page .parser-action button {
+    padding: 0 16px;
+    min-width: 64px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* Remote theme injects a body background image via ::after; hide it on mobile to avoid the top banner */
+  body::after {
+    display: none !important;
+    background-image: none !important;
+    content: none !important;
   }
 }

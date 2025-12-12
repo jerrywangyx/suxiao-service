@@ -1,0 +1,63 @@
+/* 隐藏外部链接和版权信息 - 增强版 */
+
+/* 赞助按钮 */
+.support-button,
+[class*="support"],
+[class*="sponsor"],
+[class*="donate"] {
+  display: none !important;
+}
+
+/* 底部 footer */
+footer,
+.footer,
+[class*="footer"] {
+  display: none !important;
+}
+
+/* 赞助卡片 */
+.colored-card,
+[class*="colored-card"] {
+  display: none !important;
+}
+
+/* GitHub链接 */
+a[href*="github.com"],
+a[href*="twitter.com"],
+a[href*="buymeacoffee"],
+a[href*="ko-fi"],
+a[href*="patreon"],
+a[href*="paypal"] {
+  display: none !important;
+}
+
+/* 所有 target="_blank" 的外部链接 */
+a[target="_blank"]:not([href^="/tools"]):not([href^="/"]) {
+  display: none !important;
+}
+
+/* 外部链接图标 */
+[class*="external"],
+.n-icon[class*="external"] {
+  display: none !important;
+}
+
+/* 隐藏页面底部的作者信息和链接 */
+.n-layout-footer,
+.n-text[class*="footer"],
+[class*="author"],
+[class*="copyright"] {
+  display: none !important;
+}
+
+/* 侧边栏底部的链接区域 */
+.n-menu .n-menu-item a[href*="github"],
+.n-menu .n-menu-item a[href*="twitter"] {
+  display: none !important;
+}
+
+/* 隐藏关于页面的外部链接 */
+.about-links,
+[class*="about-link"] {
+  display: none !important;
+}
