@@ -3,6 +3,8 @@
   "name": "wangyongxin",
   "compatibility_date": "2025-12-12",
   "compatibility_flags": ["nodejs_compat"],
+  // 启用 workers.dev 子域名
+  "workers_dev": true,
   "assets": {
     "directory": ".vercel/output/static"
   }
