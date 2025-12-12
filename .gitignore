@@ -11,3 +11,6 @@ node_modules/
 app/homepage-content.js
 
 .vercel
+
+# 临时目录（克隆的第三方项目）
+temp-*/
