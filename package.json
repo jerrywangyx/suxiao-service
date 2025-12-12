@@ -9,6 +9,7 @@
     "build": "node -r ./scripts/chunk-require-patch.cjs ./node_modules/next/dist/bin/next build",
     "start": "node -r ./scripts/chunk-require-patch.cjs ./node_modules/next/dist/bin/next start",
     "cloudflare:build": "node scripts/generate-homepage-content.cjs && npx @cloudflare/next-on-pages",
+    "cloudflare:deploy": "npx wrangler pages deploy .vercel/output/static --project-name=yongxin --commit-dirty=true",
     "vercel:deploy": "vercel --prod"
   },
   "dependencies": {
