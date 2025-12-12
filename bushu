@@ -1,6 +1,13 @@
-     cd D:\aiworkspace\suxiao-service
-     $env:VERCEL_TOKEN="CDkkPGQVxNkzdikFavQzNt4t"
-     npx vercel build --token=$env:VERCEL_TOKEN
-     npx @cloudflare/next-on-pages --skip-build
-     $env:CLOUDFLARE_API_TOKEN="z4Vm9XLEmbQ0Yg4jka562lzj5TZRRrPzY6IfkJ_L"
-     npx wrangler pages deploy .vercel/output/static --project-name=wangyongxin --commit-dirty=true
+# 本地打包部署脚本 (PowerShell)
+cd D:\aiworkspace\suxiao-service
+
+# 1. 构建项目
+npm run cloudflare:build
+
+# 2. 设置 Cloudflare API Token
+$env:CLOUDFLARE_API_TOKEN="z4Vm9XLEmbQ0Yg4jka562lzj5TZRRrPzY6IfkJ_L"
+
+# 3. 部署到 Cloudflare Pages
+npx wrangler pages deploy .vercel/output/static --project-name=wangyongxin --commit-dirty=true
+
+# 部署成功后访问: https://wangyongxin.pages.dev
