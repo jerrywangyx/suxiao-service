@@ -1,7 +1,7 @@
-# GitHub Actions 构建并自动部署到 Cloudflare Pages
-# 需要在 GitHub 仓库设置中添加 Secret: CLOUDFLARE_API_TOKEN
+# GitHub Actions 构建工作流
+# 构建完成后可下载产物手动部署
 
-name: Deploy to Cloudflare Pages
+name: Build
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:  # 允许手动触发
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -32,8 +32,11 @@ jobs:
       - name: Build
         run: npm run cloudflare:build
       
-      # 部署到 Cloudflare Pages
-      - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy .vercel/output/static --project-name=wangyongxin --commit-dirty=true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      # 上传构建产物（可下载）
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-build
+          path: .vercel/output/static
+          retention-days: 7  # 保留7天
+
