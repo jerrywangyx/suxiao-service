@@ -1,0 +1,28 @@
+image: node:22
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm ci
+    - node scripts/generate-homepage-content.cjs
+    - npm run build
+    - npx @cloudflare/next-on-pages
+  artifacts:
+    paths:
+      - .vercel/output/static
+    expire_in: 1 hour
+
+deploy:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - npx wrangler pages deploy .vercel/output/static --project-name=yongxin --commit-dirty=true
+  only:
+    - main
+  variables:
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
