@@ -9,3 +9,5 @@ node_modules/
 
 # Auto-generated files
 app/homepage-content.js
+
+.vercel

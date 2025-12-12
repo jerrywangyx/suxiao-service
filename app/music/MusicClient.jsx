@@ -290,7 +290,7 @@ export default function MusicClient({ initialName }) {
     }
     
     try {
-      const response = await fetch(`/api/tool?action=lyric&id=${music.id}&type=${music.type}`);
+      const response = await fetch(`/api/music/search?action=lyric&id=${music.id}&type=${music.type}`);
       const data = await response.json();
       
       if (data.success && data.lyric) {
@@ -344,7 +344,7 @@ export default function MusicClient({ initialName }) {
    */
   const logVisit = useCallback((type, search = null) => {
     try {
-      fetch('/api/visit', {
+      fetch('/api/music/search?action=visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type, search }),
@@ -363,7 +363,7 @@ export default function MusicClient({ initialName }) {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/tool?action=search&name=${encodeURIComponent(name)}&source=${source}&page=${page}&pageSize=${pageSize}`);
+      const response = await fetch(`/api/music/search?action=search&name=${encodeURIComponent(name)}&source=${source}&page=${page}&pageSize=${pageSize}`);
       const data = await response.json();
 
       if (data.success) {

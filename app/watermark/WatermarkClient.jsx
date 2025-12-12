@@ -30,6 +30,13 @@ const Icons = {
       <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
     </svg>
   ),
+  Image: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+      <circle cx="8.5" cy="8.5" r="1.5"/>
+      <polyline points="21 15 16 10 5 21"/>
+    </svg>
+  ),
   Loading: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="spin">
       <line x1="12" y1="2" x2="12" y2="6"/>
@@ -42,6 +49,11 @@ const Icons = {
       <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
     </svg>
   ),
+  Check: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  ),
   Copy: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
@@ -52,7 +64,7 @@ const Icons = {
     <svg viewBox="0 0 24 24" fill="currentColor">
       <polygon points="5 3 19 12 5 21 5 3"/>
     </svg>
-  ),
+  )
 };
 
 // 支持的平台列表
@@ -113,7 +125,7 @@ export default function WatermarkClient({ initialUrl }) {
     setResult(null);
 
     try {
-      const response = await fetch(`/api/tool?action=watermark&url=${encodeURIComponent(inputUrl)}`);
+      const response = await fetch(`/api/music/search?action=watermark&url=${encodeURIComponent(inputUrl)}`);
       const data = await response.json();
 
       if (data.success) {
@@ -130,13 +142,27 @@ export default function WatermarkClient({ initialUrl }) {
   };
 
   // 复制链接
-  const handleCopy = async (text) => {
+  const handleCopy = async (url) => {
     try {
-      await navigator.clipboard.writeText(text);
-      alert('复制成功');
+      await navigator.clipboard.writeText(url);
+      alert('链接已复制');
     } catch (err) {
       console.error('复制失败:', err);
     }
+  };
+
+  // 下载文件 - 通过代理下载
+  const handleDownload = (url) => {
+    // 使用代理 API 下载
+    const proxyUrl = `/api/music/search?action=download&url=${encodeURIComponent(url)}`;
+    
+    // 创建隐藏的 a 标签触发下载
+    const a = document.createElement('a');
+    a.href = proxyUrl;
+    a.download = 'video.mp4';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (
@@ -154,10 +180,12 @@ export default function WatermarkClient({ initialUrl }) {
           <h1 className="title">
             <span className="gradient-text">视频去水印</span>
           </h1>
-          <p className="subtitle">支持抖音、快手、小红书、微博、B站等 100+ 平台</p>
+          <p className="subtitle">
+            支持130+平台视频、图片、实况Live图去水印下载
+          </p>
         </header>
 
-        {/* 搜索区域 */}
+        {/* 搜索框 */}
         <div className="search-section">
           <div className="search-box">
             <input
@@ -193,7 +221,7 @@ export default function WatermarkClient({ initialUrl }) {
             ) : (
               <>
                 <Icons.Download />
-                <span>解析视频</span>
+                <span>开始解析</span>
               </>
             )}
           </button>
@@ -284,6 +312,7 @@ export default function WatermarkClient({ initialUrl }) {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

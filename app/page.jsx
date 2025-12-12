@@ -2,9 +2,7 @@ import Script from 'next/script';
 import HomepageContent from './components/HomepageContent';
 import { homepageContent } from './homepage-content.js';
 
-// 强制静态生成，避免 Edge Runtime 在 Cloudflare Pages 上的兼容性问题
-export const dynamic = 'force-static';
-export const revalidate = false;
+export const runtime = 'edge';
 
 // 不移除script标签，保留完整的HTML以确保JavaScript正常工作
 

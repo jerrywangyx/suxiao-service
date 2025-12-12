@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 async function logVisit() {
   try {
-    await fetch('/api/visit', {
+    await fetch('/api/music/search?action=visit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

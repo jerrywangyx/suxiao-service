@@ -22,7 +22,7 @@ const tips = [
 ];
 
 async function logPlayRequest(query) {
-  const response = await fetch('/api/log', {
+  const response = await fetch('/api/music/search?action=log', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ async function logPlayRequest(query) {
  */
 async function logVisit(type, search = null) {
   try {
-    await fetch('/api/visit', {
+    await fetch('/api/music/search?action=visit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type, search }),
