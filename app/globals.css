@@ -298,6 +298,51 @@ li {
   background: #a8a8a8;
 }
 
+/* 修复首页内容区左边被遮挡的问题 */
+.lm-tools-clone {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.site-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* 缩小侧边栏宽度 */
+.site-aside {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+}
+
+.site-aside .aside-wrapper {
+  width: 80px !important;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+/* 确保内容区正确对齐 */
+.site-wrapper > .content {
+  margin-left: 0 !important;
+}
+
+/* 确保内容区在侧边栏收起时正常显示 */
+@media (max-width: 991px) {
+  .content {
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .player-page .aim-topbar {
     height: auto;

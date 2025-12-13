@@ -2,18 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-async function logVisit() {
-  try {
-    await fetch('/api/music/search?action=visit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  } catch (error) {
-    console.error('记录访问日志失败', error);
-  }
-}
+// 首页访问日志已由 middleware.js 在服务端记录，无需客户端重复记录
 
 export default function HomepageContent({ html }) {
   const containerRef = useRef(null);
@@ -42,10 +31,6 @@ export default function HomepageContent({ html }) {
     });
   }, [html]);
 
-  // 记录访问日志
-  useEffect(() => {
-    void logVisit();
-  }, []);
 
   return <div ref={containerRef} className="lm-tools-clone" />;
 }

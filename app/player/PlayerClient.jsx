@@ -36,15 +36,15 @@ async function logPlayRequest(query) {
 
 /**
  * 记录访问日志
- * @param {string} type - 访问类型
- * @param {string} search - 搜索内容
+ * @param {string} visitType - 访问类型
+ * @param {string} searchContent - 搜索内容
  */
-async function logVisit(type, search = null) {
+async function logVisit(visitType, searchContent = null) {
   try {
-    await fetch('/api/music/search?action=visit', {
+    await fetch('/api/visit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type, search }),
+      body: JSON.stringify({ visitType, searchContent }),
     });
   } catch (e) {
     // 忽略错误
@@ -62,10 +62,11 @@ export default function PlayerClient() {
   const performParse = useCallback(
     async (target) => {
       setIframeSrc(`${selectedParser}${target}`);
+      // 记录电影搜索访问日志（独立执行，不受其他日志影响）
+      logVisit('电影搜索', target);
+      // 记录播放请求日志
       try {
         await logPlayRequest(target);
-        // 记录VIP视频访问日志
-        await logVisit('VIP视频', target);
       } catch (error) {
         console.error('写入播放日志失败', error);
       }

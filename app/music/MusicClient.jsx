@@ -125,15 +125,16 @@ const formatTime = (seconds) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-// 数据源配置（只保留网易云，QQ音乐播放源在Cloudflare上不可用）
+// 数据源配置
 const MUSIC_SOURCES = [
-  { id: 'netease', name: '网易云音乐' },
+  { id: 'buguyy', name: '精简音乐', direct: true }, // 前端直接调用（默认）
+  { id: 'netease', name: '全网音乐' },
 ];
 
 
 export default function MusicClient({ initialName }) {
   const [searchName, setSearchName] = useState(initialName || '');
-  const [searchSource, setSearchSource] = useState('netease'); // 数据源
+  const [searchSource, setSearchSource] = useState('buguyy'); // 数据源（默认精简音乐）
   const [musicList, setMusicList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPlaying, setCurrentPlaying] = useState(null);
@@ -248,7 +249,12 @@ export default function MusicClient({ initialName }) {
   const parseLyric = (lrcString) => {
     if (!lrcString) return [];
     
-    const lines = lrcString.split('\n');
+    // 先把 <br /> 或 <br> 替换为换行符（兼容不同API返回格式）
+    const normalizedLrc = lrcString
+      .replace(/<br\s*\/?>/gi, '\n')  // 替换 <br> 或 <br /> 或 <br/>
+      .replace(/\\n/g, '\n');          // 替换转义的 \n
+    
+    const lines = normalizedLrc.split('\n');
     const result = [];
     
     // 匹配时间标签 [mm:ss.xx] 或 [mm:ss]
@@ -284,20 +290,44 @@ export default function MusicClient({ initialName }) {
 
   // 获取歌词
   const fetchLyric = async (music) => {
-    if (!music || music.type !== 'netease') {
+    if (!music) {
       setLyrics([]);
       return;
     }
     
     try {
-      const response = await fetch(`/api/music/search?action=lyric&id=${music.id}&type=${music.type}`);
-      const data = await response.json();
+      let lyricText = '';
       
-      if (data.success && data.lyric) {
-        const parsedLyrics = parseLyric(data.lyric);
+      // 根据不同数据源获取歌词
+      if (music.type === 'buguyy') {
+        // 全网音乐源：通过 geturl2 API 获取歌词
+        console.log('[歌词] 尝试获取全网音乐歌词, id:', music.id);
+        const response = await fetch(`https://a.buguyy.top/newapi/geturl2.php?id=${music.id}`);
+        const data = await response.json();
+        console.log('[歌词] API 返回:', data);
+        
+        if (data && data.code === 200 && data.data && data.data.lrc) {
+          lyricText = data.data.lrc;
+          console.log('[歌词] 获取到歌词长度:', lyricText.length);
+        }
+      } else {
+        // 网易云音乐：通过后端 API 获取歌词
+        const response = await fetch(`/api/music/search?action=lyric&id=${music.id}&type=${music.type || 'netease'}`);
+        const data = await response.json();
+        
+        if (data.success && data.lyric) {
+          lyricText = data.lyric;
+        }
+      }
+      
+      // 解析歌词
+      if (lyricText) {
+        const parsedLyrics = parseLyric(lyricText);
+        console.log('[歌词] 解析完成，共', parsedLyrics.length, '行');
         setLyrics(parsedLyrics);
         setCurrentLyricIndex(-1);
       } else {
+        console.log('[歌词] 未获取到歌词');
         setLyrics([]);
       }
     } catch (error) {
@@ -339,22 +369,27 @@ export default function MusicClient({ initialName }) {
 
   /**
    * 记录访问日志
-   * @param {string} type - 访问类型
-   * @param {string} search - 搜索内容
+   * @param {string} visitType - 访问类型
+   * @param {string} searchContent - 搜索内容
    */
-  const logVisit = useCallback((type, search = null) => {
+  const logVisit = useCallback((visitType, searchContent = null) => {
     try {
-      fetch('/api/music/search?action=visit', {
+      fetch('/api/visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type, search }),
+        body: JSON.stringify({ visitType, searchContent }),
       }).catch(() => {});
     } catch (e) {
       // 忽略错误
     }
   }, []);
 
-  // 搜索音乐
+  /**
+   * 搜索音乐 - 根据数据源选择后端代理或前端直接调用
+   * @param {string} name - 搜索关键词
+   * @param {string} source - 数据源ID
+   * @param {number} page - 页码
+   */
   const searchMusic = async (name = searchName, source = searchSource, page = 1) => {
     if (!name.trim()) {
       alert('请输入歌曲或歌手名称');
@@ -363,8 +398,19 @@ export default function MusicClient({ initialName }) {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/music/search?action=search&name=${encodeURIComponent(name)}&source=${source}&page=${page}&pageSize=${pageSize}`);
-      const data = await response.json();
+      let data;
+      
+      // 检查是否为前端直接调用的源
+      const sourceConfig = MUSIC_SOURCES.find(s => s.id === source);
+      
+      if (sourceConfig?.direct && source === 'buguyy') {
+        // 前端直接调用全网音乐 API
+        data = await searchMusicDirect(name, page);
+      } else {
+        // 通过后端代理
+        const response = await fetch(`/api/music/search?action=search&name=${encodeURIComponent(name)}&source=${source}&page=${page}&pageSize=${pageSize}`);
+        data = await response.json();
+      }
 
       if (data.success) {
         setMusicList(data.data || []);
@@ -374,7 +420,7 @@ export default function MusicClient({ initialName }) {
         
         // 记录访问日志（仅首次搜索，即第1页时记录）
         if (page === 1) {
-          logVisit('VIP音乐', name.trim());
+          logVisit('音乐搜索', name.trim());
         }
       } else {
         alert('搜索失败: ' + (data.message || '未知错误'));
@@ -394,7 +440,119 @@ export default function MusicClient({ initialName }) {
   };
 
   /**
-   * 获取播放源列表（仅网易云）
+   * 前端直接调用全网音乐搜索 API
+   * @param {string} keyword - 搜索关键词
+   * @param {number} page - 页码
+   * @returns {Object} 搜索结果
+   */
+  const searchMusicDirect = async (keyword, page = 1) => {
+    try {
+      const response = await fetch(`https://a.buguyy.top/newapi/search.php?keyword=${encodeURIComponent(keyword)}&page=${page}`);
+      const result = await response.json();
+      
+      console.log('[全网音乐] API 返回:', result);
+      console.log('[全网音乐] 返回类型:', typeof result);
+      console.log('[全网音乐] 返回键名:', result ? Object.keys(result) : 'null');
+      
+      // 尝试多种格式解析数据
+      let songsData = null;
+      
+      // 格式1: { data: [...] }
+      if (result && result.data && Array.isArray(result.data)) {
+        console.log('[全网音乐] 匹配格式: data数组');
+        songsData = result.data;
+      }
+      // 格式2: { list: [...] }
+      else if (result && result.list && Array.isArray(result.list)) {
+        console.log('[全网音乐] 匹配格式: list数组');
+        songsData = result.list;
+      }
+      // 格式3: { songs: [...] }
+      else if (result && result.songs && Array.isArray(result.songs)) {
+        console.log('[全网音乐] 匹配格式: songs数组');
+        songsData = result.songs;
+      }
+      // 格式4: 直接返回数组 [...]
+      else if (Array.isArray(result)) {
+        console.log('[全网音乐] 匹配格式: 直接数组');
+        songsData = result;
+      }
+      // 格式5: { code: 200, data: {...} } 或 { code: 0, data: {...} }
+      else if (result && (result.code === 200 || result.code === 0 || result.code === '200')) {
+        console.log('[全网音乐] 匹配格式: code+data');
+        // data 可能是数组或对象
+        const dataContent = result.data;
+        if (Array.isArray(dataContent)) {
+          songsData = dataContent;
+        } else if (dataContent && typeof dataContent === 'object') {
+          // data 是对象，尝试从中提取数组
+          console.log('[全网音乐] data 是对象，键名:', Object.keys(dataContent));
+          songsData = dataContent.list || dataContent.songs || dataContent.data || dataContent.items || dataContent.result;
+          // 如果还不是数组，遍历找数组字段
+          if (!Array.isArray(songsData)) {
+            for (const key of Object.keys(dataContent)) {
+              if (Array.isArray(dataContent[key])) {
+                console.log(`[全网音乐] 在 data 中找到数组字段: ${key}`);
+                songsData = dataContent[key];
+                break;
+              }
+            }
+          }
+        }
+      }
+      // 格式6: 检查其他可能的数组字段
+      else if (result && typeof result === 'object') {
+        console.log('[全网音乐] 尝试查找数组字段...');
+        for (const key of Object.keys(result)) {
+          if (Array.isArray(result[key]) && result[key].length > 0) {
+            console.log(`[全网音乐] 找到数组字段: ${key}`);
+            songsData = result[key];
+            break;
+          }
+        }
+      }
+      
+      console.log('[全网音乐] 解析到的歌曲数据:', songsData);
+      
+      if (songsData && songsData.length > 0) {
+        // 打印第一首歌的字段，帮助调试
+        console.log('[精简音乐] 第一首歌原始数据:', songsData[0]);
+        console.log('[精简音乐] 第一首歌键名:', Object.keys(songsData[0]));
+        
+        const songs = songsData.map(song => ({
+          id: song.id || song.rid || song.songid || song.song_id || song.musicid || song.hash,
+          name: song.title || song.name || song.song || song.songname || song.song_name || song.filename,
+          artist: song.singer || song.artist || song.singername || song.singer_name || song.author || '未知歌手',
+          album: song.album || song.albumname || song.album_name || '',
+          duration: song.duration || song.timelength || '',
+          cover: song.picurl || song.pic || song.cover || '',
+          // 注意：downurl 格式是 "FLAC#网盘链接###MP3#网盘链接"，不是直接播放链接
+          // 精简音乐需要通过 geturl2.php API 获取真正的播放链接
+          playUrl: '', // 不使用搜索返回的链接，统一通过API获取
+          type: 'buguyy', // 标记数据源类型
+          originalData: song, // 保留原始数据
+        }));
+        
+        console.log('[全网音乐] 解析后歌曲:', songs);
+        
+        return {
+          success: true,
+          data: songs,
+          total: songs.length,
+          totalPages: 1, // 该源不支持分页
+        };
+      }
+      
+      console.warn('[全网音乐] 无法解析数据格式，songsData:', songsData);
+      return { success: false, message: '未找到相关歌曲' };
+    } catch (error) {
+      console.error('[全网音乐] 直接搜索失败:', error);
+      return { success: false, message: '搜索失败: ' + error.message };
+    }
+  };
+
+  /**
+   * 获取播放源列表
    * @param {Object} music - 歌曲对象
    * @returns {Array} 播放源URL列表
    */
@@ -402,12 +560,51 @@ export default function MusicClient({ initialName }) {
     const sources = [];
     const id = music.id;
     
-    // 网易云官方外链
-    if (id) {
-      sources.push({
-        name: '网易云外链',
-        url: `https://music.163.com/song/media/outer/url?id=${id}.mp3`,
-      });
+    // 根据歌曲来源选择播放源
+    if (music.type === 'buguyy') {
+      // 精简音乐源 - 只使用一个源，避免切换导致从头播放
+      if (music.playUrl) {
+        // 优先使用搜索结果中的直链
+        console.log('[精简音乐] 使用搜索返回的播放链接:', music.playUrl);
+        sources.push({
+          name: '精简音乐直链',
+          url: music.playUrl,
+        });
+      } else {
+        // 没有直链时，通过 API 获取播放链接
+        sources.push({
+          name: '精简音乐API',
+          getUrl: async () => {
+            try {
+              const response = await fetch(`https://a.buguyy.top/newapi/geturl2.php?id=${id}`);
+              const data = await response.json();
+              console.log('[精简音乐] geturl2 API 返回:', data);
+              // 根据API返回格式解析播放URL
+              if (data && data.code === 200 && data.data && data.data.url) {
+                return data.data.url;
+              }
+              if (data && data.url) {
+                return data.url;
+              }
+              if (data && data.data && data.data.url) {
+                return data.data.url;
+              }
+              return null;
+            } catch (error) {
+              console.error('获取播放URL失败:', error);
+              return null;
+            }
+          },
+        });
+      }
+    } else {
+      // 网易云官方外链（默认）
+      if (id) {
+        sources.push({
+          name: '网易云外链',
+          url: `https://music.163.com/song/media/outer/url?id=${id}.mp3`,
+        });
+      }
     }
     
     return sources;
@@ -905,6 +1102,18 @@ export default function MusicClient({ initialName }) {
     <div className="music-page has-sidebar">
         {/* 移动端顶部导航 */}
         <div className="mobile-tabs">
+          {/* 移动端数据源选择 */}
+          <select
+            className="mobile-source-select"
+            value={searchSource}
+            onChange={(e) => handleSourceChange(e.target.value)}
+          >
+            {MUSIC_SOURCES.map((source) => (
+              <option key={source.id} value={source.id}>
+                {source.name}
+              </option>
+            ))}
+          </select>
           <div className="mobile-search-bar">
             <input
               type="text"
@@ -1093,8 +1302,25 @@ export default function MusicClient({ initialName }) {
                 ))}
               </div>
 
-              {/* 分页器 */}
-              {totalPages > 1 && (
+              {/* 精简音乐：显示"加载更多"按钮 */}
+              {searchSource === 'buguyy' && musicList.length > 0 && (
+                <div className="load-more-container">
+                  <button
+                    className="load-more-btn"
+                    onClick={() => {
+                      // 切换到全网音乐源并重新搜索
+                      setSearchSource('netease');
+                      searchMusic(searchName, 'netease', 1);
+                    }}
+                  >
+                    <span>🔍 加载更多结果</span>
+                    <span className="load-more-hint">切换至全网音乐搜索更多歌曲</span>
+                  </button>
+                </div>
+              )}
+
+              {/* 分页器（仅全网音乐源显示） */}
+              {searchSource !== 'buguyy' && totalPages > 1 && (
                 <div className="pagination">
                   <div className="pagination-info">
                     共 {total} 首歌曲，第 {currentPage} / {totalPages} 页

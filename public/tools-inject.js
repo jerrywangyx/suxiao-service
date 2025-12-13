@@ -1,7 +1,7 @@
 /**
  * 首页工具区域重构脚本
  * 1. 将"工具直达"改成"我开发的工具"，只显示自定义的三个工具
- * 2. 在主内容区添加"工具导航"展示原有工具
+ * 2. 在主内容区添加"工具"展示原有工具
  * 3. 隐藏影视和音乐导航及内容
  * 4. 隐藏热门站点模块
  * 5. 记录工具点击访问日志
@@ -240,7 +240,7 @@
   }
 
   /**
-   * 创建工具导航内容区卡片（使用硬编码的工具列表）
+   * 创建工具内容区卡片（使用硬编码的工具列表）
    */
   function createToolNavCard() {
     const toolNavCard = document.createElement('div');
@@ -273,7 +273,7 @@
     toolNavCard.innerHTML = `
       <div class="card-header d-flex flex-nowrap text-nowrap gap-2 align-items-center">
         <div class="h4">
-          <i class="fas fa-sm fa-compass"></i> 工具导航
+          <i class="fas fa-sm fa-compass"></i> 工具
         </div>
       </div>
       <div class="card-body">
@@ -287,7 +287,7 @@
   }
 
   /**
-   * 在主内容区添加工具导航卡片
+   * 在主内容区添加工具卡片
    */
   function addToolNavContent() {
     const mainContent = document.querySelector('.site-main .container, .site-main');
@@ -296,14 +296,14 @@
     // 检查是否已添加
     if (document.querySelector('#c-toolnav')) return;
 
-    // 创建工具导航卡片
+    // 创建工具卡片
     const toolNavCard = createToolNavCard();
 
     // 找到第一个带 c- 前缀 id 的卡片，插入到它前面
     const firstCard = mainContent.querySelector('.card.card-xl[id^="c-"]');
     if (firstCard && firstCard.parentNode) {
       firstCard.parentNode.insertBefore(toolNavCard, firstCard);
-      console.log('[ToolsInject] 工具导航内容区已添加（30个工具）');
+      console.log('[ToolsInject] 工具内容区已添加（30个工具）');
     }
   }
 
@@ -348,7 +348,7 @@
   }
 
   /**
-   * 修改侧边栏工具箱导航，点击滚动到工具导航内容区
+   * 修改侧边栏工具箱导航，点击滚动到工具内容区
    */
   function updateToolboxNavigation() {
     const asideMenu = document.querySelector('ul.aside-menu');
@@ -361,18 +361,18 @@
         const target = link.getAttribute('data-target');
         const text = link.textContent.trim();
         // data-target="15" 是工具箱
-        if (target === '15' || text.includes('工具箱') || text.includes('工具导航')) {
+        if (target === '15' || text.includes('工具箱') || text.includes('工具')) {
           // 修改名称
           const textEl = link.querySelector('.menu-text');
           if (textEl) {
-            textEl.textContent = '工具导航';
+            textEl.textContent = '工具';
           }
           // 修改图标
           const iconEl = link.querySelector('.menu-icon i');
           if (iconEl) {
             iconEl.className = 'fas fa-compass fa-sm';
           }
-          // 改为滚动到工具导航内容区
+          // 改为滚动到工具内容区
           link.removeAttribute('data-target');
           link.setAttribute('href', '#c-toolnav');
           link.removeAttribute('target');
@@ -390,7 +390,7 @@
       }
     });
 
-    console.log('[ToolsInject] 工具导航已设置为滚动到内容区');
+    console.log('[ToolsInject] 工具已设置为滚动到内容区');
   }
 
   /**
@@ -466,10 +466,10 @@
     // 5. 把"我开发的工具"插入到搜索框下面
     insertMyToolsAfterSearch();
 
-    // 5. 在主内容区添加工具导航卡片（30个常用工具）
+    // 5. 在主内容区添加工具卡片（30个常用工具）
     addToolNavContent();
 
-    // 6. 修改侧边栏工具导航，点击滚动到内容区
+    // 6. 修改侧边栏工具，点击滚动到内容区
     updateToolboxNavigation();
 
     console.log('[ToolsInject] 页面重构完成');

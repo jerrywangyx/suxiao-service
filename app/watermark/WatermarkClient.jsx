@@ -3,6 +3,89 @@
 import { useState, useEffect } from 'react';
 import './watermark.css';
 
+/**
+ * 记录访问日志
+ */
+async function logVisit(visitType, searchContent = null) {
+  try {
+    await fetch('/api/visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ visitType, searchContent }),
+    });
+  } catch (e) {
+    // 忽略错误
+  }
+}
+
+/**
+ * 检测视频平台类型
+ */
+function detectPlatform(url) {
+  const lowerUrl = url.toLowerCase();
+  if (lowerUrl.includes('douyin.com') || lowerUrl.includes('iesdouyin.com') || lowerUrl.includes('tiktok.com')) return 'douyin';
+  if (lowerUrl.includes('kuaishou.com') || lowerUrl.includes('gifshow.com')) return 'kuaishou';
+  if (lowerUrl.includes('xiaohongshu.com') || lowerUrl.includes('xhslink.com')) return 'xiaohongshu';
+  if (lowerUrl.includes('weibo.com') || lowerUrl.includes('weibo.cn')) return 'weibo';
+  if (lowerUrl.includes('bilibili.com') || lowerUrl.includes('b23.tv')) return 'bilibili';
+  return 'generic';
+}
+
+/**
+ * 前端直接调用第三方去水印 API
+ */
+async function parseWatermark(url) {
+  // 从分享文本中提取URL
+  const urlMatch = url.match(/https?:\/\/[^\s]+/);
+  const extractedUrl = urlMatch ? urlMatch[0] : url;
+  
+  // 检查是否是有效的 URL
+  try {
+    new URL(extractedUrl);
+  } catch {
+    return { success: false, message: '请输入有效的视频链接（需要包含 http:// 或 https://）' };
+  }
+
+  const platform = detectPlatform(extractedUrl);
+  
+  // 根据平台选择对应的 API
+  const apiMap = {
+    douyin: `https://api.pearktrue.cn/api/video/douyin/?url=${encodeURIComponent(extractedUrl)}`,
+    kuaishou: `https://api.pearktrue.cn/api/video/kuaishou/?url=${encodeURIComponent(extractedUrl)}`,
+    xiaohongshu: `https://api.pearktrue.cn/api/video/xhs/?url=${encodeURIComponent(extractedUrl)}`,
+    weibo: `https://api.pearktrue.cn/api/video/weibo/?url=${encodeURIComponent(extractedUrl)}`,
+    bilibili: `https://api.pearktrue.cn/api/video/bilibili/?url=${encodeURIComponent(extractedUrl)}`,
+    generic: `https://api.pearktrue.cn/api/video/?url=${encodeURIComponent(extractedUrl)}`,
+  };
+
+  const apiUrl = apiMap[platform];
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    
+    if (data.code === 200 && data.data) {
+      const isVideo = !!data.data.video;
+      return {
+        success: true,
+        data: {
+          type: isVideo ? 'video' : 'image',
+          title: data.data.title || '',
+          author: data.data.author || '',
+          cover: data.data.cover || '',
+          url: isVideo ? data.data.video : (data.data.images?.[0] || data.data.url || ''),
+          images: data.data.images || [],
+          platform: platform,
+        }
+      };
+    }
+    return { success: false, message: '解析失败，请检查链接是否正确' };
+  } catch (error) {
+    console.error('解析失败:', error);
+    return { success: false, message: '解析失败，可能是网络问题，请稍后重试' };
+  }
+}
+
 // SVG 图标
 const Icons = {
   Paste: () => (
@@ -113,7 +196,7 @@ export default function WatermarkClient({ initialUrl }) {
     setError('');
   };
 
-  // 解析视频
+  // 解析视频（前端直接调用第三方 API）
   const handleParse = async () => {
     if (!inputUrl.trim()) {
       setError('请输入视频链接');
@@ -124,14 +207,17 @@ export default function WatermarkClient({ initialUrl }) {
     setError('');
     setResult(null);
 
-    try {
-      const response = await fetch(`/api/music/search?action=watermark&url=${encodeURIComponent(inputUrl)}`);
-      const data = await response.json();
+    // 记录去水印访问日志（点击解析就记录）
+    logVisit('视频去水印', inputUrl.trim());
 
-      if (data.success) {
-        setResult(data.data);
+    try {
+      // 前端直接调用第三方 API
+      const parseResult = await parseWatermark(inputUrl.trim());
+
+      if (parseResult.success && parseResult.data) {
+        setResult(parseResult.data);
       } else {
-        setError(data.message || '解析失败，请检查链接是否正确');
+        setError(parseResult.message || '解析失败，请检查链接是否正确');
       }
     } catch (err) {
       console.error('解析失败:', err);

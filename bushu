@@ -8,6 +8,5 @@ npm run cloudflare:build
 $env:CLOUDFLARE_API_TOKEN="z4Vm9XLEmbQ0Yg4jka562lzj5TZRRrPzY6IfkJ_L"
 
 # 3. 部署到 Cloudflare Pages
-npx wrangler pages deploy .vercel/output/static --project-name=wangyongxin --commit-dirty=true
+npx wrangler pages deploy .vercel/output/static --project-name=yongxin --commit-dirty=true
 
-# 部署成功后访问: https://wangyongxin.pages.dev

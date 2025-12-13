@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/temp-it-tools" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/temp-squoosh" vcs="Git" />
   </component>
 </project>
